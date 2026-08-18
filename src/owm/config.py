@@ -18,10 +18,14 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 @dataclass
 class TrainConfig:
     # ----- Ma'lumot -----
-    data_dir: str = "data/raw"
+    dataset: str = "folder"              # folder | flowers102 | cifar10 | celeba
+    data_dir: str = "data/raw"           # dataset="folder" uchun
+    download_dir: str = "data/datasets"  # yuklab olinadigan datasetlar uchun
     image_size: int = 256
-    val_split: float = 0.1          # 10% validation uchun ajratiladi
-    horizontal_flip: bool = True    # augmentation (faqat train'da)
+    val_split: float = 0.1               # 10% validation uchun ajratiladi
+    max_val_images: int = 512            # katta datasetda validation cheklovi
+    max_train_images: int = 0            # 0 = cheksiz (tez sinov uchun cheklang)
+    horizontal_flip: bool = True         # augmentation (faqat train'da)
 
     # ----- Model -----
     base_channels: int = 32         # birinchi conv qatlam kengligi
@@ -58,6 +62,10 @@ class TrainConfig:
     @property
     def data_path(self) -> Path:
         return PROJECT_ROOT / self.data_dir
+
+    @property
+    def download_path(self) -> Path:
+        return PROJECT_ROOT / self.download_dir
 
     def to_dict(self) -> dict:
         return asdict(self)

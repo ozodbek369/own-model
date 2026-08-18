@@ -1,0 +1,27 @@
+{
+  "run_name": "ae_flowers",
+
+  "dataset": "flowers102",
+  "image_size": 128,
+  "val_split": 0.05,
+  "max_val_images": 512,
+  "max_train_images": 0,
+  "horizontal_flip": true,
+
+  "base_channels": 64,
+  "latent_channels": 4,
+
+  "batch_size": 32,
+  "learning_rate": 0.0002,
+  "epochs": 100,
+  "seed": 42,
+  "num_workers": 2,
+  "amp": true,
+  "grad_clip": 1.0,
+
+  "save_every": 5,
+  "sample_every": 5,
+  "resume": true,
+
+  "device": "auto"
+}

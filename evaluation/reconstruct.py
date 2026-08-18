@@ -24,10 +24,11 @@ from torchvision.utils import save_image           # noqa: E402
 from owm.config import TrainConfig                 # noqa: E402
 from owm.data import build_transform, find_images  # noqa: E402
 from owm.models import OWMAutoencoder             # noqa: E402
-from owm.utils import denormalize, get_device      # noqa: E402
+from owm.utils import configure_stdout, denormalize, get_device      # noqa: E402
 
 
 def main() -> None:
+    configure_stdout()
     parser = argparse.ArgumentParser(description="Autoencoder reconstruction")
     parser.add_argument("--checkpoint", type=str,
                         default="models/autoencoder/best.pt")

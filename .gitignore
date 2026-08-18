@@ -11,6 +11,9 @@ data/processed/*
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 
+# Yuklab olingan datasetlar (juda katta)
+data/datasets/
+
 # Model checkpointlari
 models/**/*.pt
 models/**/*.pth

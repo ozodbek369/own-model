@@ -3,10 +3,25 @@
 from __future__ import annotations
 
 import random
+import sys
 from pathlib import Path
 
 import numpy as np
 import torch
+
+
+# ============================================================
+# Konsol
+# ============================================================
+
+def configure_stdout() -> None:
+    """Windows konsoli sukut bo'yicha cp1252 ishlatadi va non-ASCII
+    belgida training'ni yiqitadi. UTF-8 ga majburlaymiz."""
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(encoding="utf-8", errors="replace")
+        except (AttributeError, ValueError):
+            pass
 
 
 # ============================================================

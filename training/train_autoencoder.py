@@ -20,7 +20,7 @@ from owm.config import TrainConfig                 # noqa: E402
 from owm.data import build_dataloaders            # noqa: E402
 from owm.models import OWMAutoencoder             # noqa: E402
 from owm.train import Trainer                     # noqa: E402
-from owm.utils import get_device, set_seed        # noqa: E402
+from owm.utils import configure_stdout, get_device, set_seed        # noqa: E402
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -42,6 +42,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main() -> None:
+    configure_stdout()
     args = build_parser().parse_args()
 
     config = (
@@ -64,7 +65,7 @@ def main() -> None:
 
     train_loader, val_loader, stats = build_dataloaders(config)
 
-    print(f"Rasmlar: jami {stats['total']} | "
+    print(f"Manba: {stats['source']} | jami {stats['total']} | "
           f"train {stats['train']} | val {stats['val']}")
     print(f"Batch: {config.batch_size} | "
           f"train batchlari: {len(train_loader)}")

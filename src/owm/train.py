@@ -81,7 +81,7 @@ class Trainer:
         self.start_epoch = meta["epoch"]
         self.best_val_loss = meta["best_val_loss"]
 
-        print(f"[resume] {last.name} dan davom etamiz — epoch {self.start_epoch}")
+        print(f"[resume] {last.name} dan davom etamiz - epoch {self.start_epoch}")
 
     # --------------------------------------------------------
     # Bitta epoch
@@ -182,6 +182,7 @@ class Trainer:
         print(f"Device     : {describe_device(self.device)}")
         print(f"Parametrlar: {human_count(count_parameters(self.model))}")
         print(f"Latent     : {self.model.latent_shape(cfg.image_size)}")
+        print(f"Siqish     : {self.model.compression_ratio(cfg.image_size):.1f}x")
         print(f"AMP        : {'yoqilgan' if self.use_amp else "o'chiq (CPU)"}")
         print("=" * 60)
         print()
@@ -207,7 +208,7 @@ class Trainer:
                     best_val_loss=self.best_val_loss,
                     config=cfg.to_dict(),
                 )
-                marker = "  ← eng yaxshi"
+                marker = "  <- eng yaxshi"
 
             val_text = f"val {val_loss:.6f} | " if val_loss is not None else ""
 
