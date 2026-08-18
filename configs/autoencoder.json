@@ -1,0 +1,25 @@
+{
+  "run_name": "autoencoder",
+
+  "data_dir": "data/raw",
+  "image_size": 256,
+  "val_split": 0.1,
+  "horizontal_flip": true,
+
+  "base_channels": 32,
+  "latent_channels": 128,
+
+  "batch_size": 4,
+  "learning_rate": 0.001,
+  "epochs": 20,
+  "seed": 42,
+  "num_workers": 0,
+  "amp": true,
+  "grad_clip": 1.0,
+
+  "save_every": 5,
+  "sample_every": 5,
+  "resume": true,
+
+  "device": "auto"
+}

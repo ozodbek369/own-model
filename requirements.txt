@@ -1,0 +1,13 @@
+# OWM — asosiy kutubxonalar
+#
+# Laptop (CPU):
+#   pip install -r requirements.txt
+#
+# Bulut GPU (CUDA 12.x):
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu124
+#   pip install -r requirements.txt
+
+torch>=2.4
+torchvision>=0.19
+numpy>=1.26
+pillow>=10.0

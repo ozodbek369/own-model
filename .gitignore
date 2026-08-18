@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Data (katta fayllar — git'ga tushmasin)
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Model checkpointlari
+models/**/*.pt
+models/**/*.pth
+models/**/*.safetensors
+
+# Experiment natijalari
+experiments/*
+!experiments/.gitkeep
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
